@@ -28,6 +28,7 @@
     "@babel/standalone": "^7.24.7",
     "@popperjs/core": "^2.11.8",
     "bem": "^2.0.0",
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "whatwg-fetch": "^3.6.20"
   }
 }

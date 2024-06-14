@@ -1,27 +1,7 @@
 import '../scss/styles.scss';
-import * as babel from '@babel/standalone';
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
-import 'whatwg-fetch';
-import './script';
 
-var bem = {
-    makeClassName: function(options) {
-        var { block, element, modifiers } = options;
-        var className = block;
-        if (element) {
-            className += '__' + element;
-        }
-        if (modifiers) {
-            Object.keys(modifiers).forEach(function(modifier) {
-                if (modifiers[modifier]) {
-                    className += ' ' + block + '--' + modifier;
-                }
-            });
-        }
-        return className;
-    }
-};
+
+
 var utils = (() => {
     function dom(selector) {
         if (selector[0] === '#') {
@@ -40,7 +20,7 @@ var utils = (() => {
 
     function getWorkerURLFromElement(selector) {
         var element = dom(selector);
-        var content = babel.transform(element[0].querySelector(':first-child').innerText, {}).code;
+        var content = element[0].textContent;
         var blob = new Blob([content], { type: 'text/javascript' });
         return URL.createObjectURL(blob);
     }
